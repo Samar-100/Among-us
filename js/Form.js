@@ -6,6 +6,7 @@ class Form {
     this.title = createElement("h2");
     this.number = createElement("h1");
     this.resetButton = createButton("Reset");
+    this.changeStatus = createButton("Switch your status");
   }
 
   hide() {
@@ -20,9 +21,11 @@ class Form {
     this.title.html("Enter your name below");
     this.title.position(displayWidth / 2 - 120, displayHeight / 6);
 
+    this.changeStatus.position(displayWidth - 480, displayHeight - 1000);
+
     this.input.position(displayWidth / 2 - 85, displayHeight / 4);
     this.button.position(displayWidth - 180, displayHeight - 218);
-    this.resetButton.position(displayWidth - 180, displayHeight - 288);
+    this.resetButton.position(displayWidth - 180, displayHeight - 1000);
 
     this.button.size(150, 75);
     this.button.style("background", rgb(200, 163, 21));
@@ -48,5 +51,10 @@ class Form {
       player.updateCount(0);
       game.update(0);
     });
+    if (status === "crewmate") {
+      this.changeStatus.mousePressed(() => {
+        status = "imposter";
+      });
+    }
   }
 }
