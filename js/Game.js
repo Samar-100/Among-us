@@ -85,6 +85,23 @@ class Game {
     if (keyIsDown(65)) {
       player.x -= 20;
     }
+    if (mousePressedOver(kill) && rand === 1) {
+      dummy1.addImage(dummy5Dead);
+      dummy1.scale = 2;
+    } else if (mousePressedOver(kill) && rand === 2) {
+      dummy2.addImage(dummy3Dead);
+      dummy2.scale = 2;
+    } else if (mousePressedOver(kill) && rand === 3) {
+      dummy3.addImage(dummy1Dead);
+      dummy3.scale = 0.5;
+    } else if (mousePressedOver(kill) && rand === 4) {
+      dummy4.addImage(dummy2Dead);
+      dummy4.scale = 2;
+    } else if (mousePressedOver(kill) && rand === 5) {
+      dummy5.addImage(dummy4Dead);
+      dummy5.scale = 2;
+    }
+
     drawSprites();
   }
 }

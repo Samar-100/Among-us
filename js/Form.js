@@ -6,7 +6,7 @@ class Form {
     this.title = createElement("h2");
     this.number = createElement("h1");
     this.resetButton = createButton("Reset");
-    this.changeStatus = createButton("Switch your status");
+    this.changeStatus = createButton("Switch to imposter/crewmate");
   }
 
   hide() {
@@ -48,12 +48,16 @@ class Form {
       flag = 1;
     });
     this.resetButton.mousePressed(() => {
-      player.updateCount(0);
       game.update(0);
+      player.updateCount(0);
     });
     if (status === "crewmate") {
       this.changeStatus.mousePressed(() => {
         status = "imposter";
+      });
+    } else {
+      this.changeStatus.mousePressed(() => {
+        status = "crewmate";
       });
     }
   }

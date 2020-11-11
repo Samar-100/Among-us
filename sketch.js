@@ -3,11 +3,13 @@ var playerCount;
 var database;
 var player;
 var dummy1, dummy2, dummy3, dummy4, dummy5;
+var dummy1Dead, dummy2Dead, dummy3Dead, dummy4Dead, dummy5Dead;
 var laptopImg, use1, use2, kill1, kill2, report1, report2, sabotage;
 var laptop, use, kill, report, sabotageS;
 var status = "crewmate";
 
 var form, player, game;
+var rand;
 
 function preload() {
   red = loadImage("images/red.png");
@@ -24,6 +26,11 @@ function preload() {
   report1 = loadImage("images/report-bright.png");
   report2 = loadImage("images/report-dull.png");
   sabotageS = loadImage("images/Sabotage.png");
+  dummy1Dead = loadImage("images/dead-black.png");
+  dummy2Dead = loadImage("images/dead-pink.png");
+  dummy3Dead = loadImage("images/dead-green.png");
+  dummy4Dead = loadImage("images/dead-orange.png");
+  dummy5Dead = loadImage("images/dead-blue.png");
 }
 
 function setup() {
@@ -41,6 +48,7 @@ function draw() {
   }
   if (gameState === 1) {
     clear();
+    rand = Math.round(random(1, 5));
     form.hide();
     game.play();
     if (status === "crewmate") {
@@ -75,7 +83,7 @@ function draw() {
         20,
         20
       );
-      kill.addImage(kill2);
+      kill.addImage(kill1);
 
       report = createSprite(
         displayWidth / 2 + 750,
